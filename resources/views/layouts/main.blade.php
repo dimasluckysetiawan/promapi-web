@@ -25,7 +25,7 @@
   <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
 
   <!-- Main CSS File -->
-  <link href="{{ asset('assets/css/main.css?v=2') }}" rel="stylesheet">
+  <link href="{{ asset('assets/css/main.css?v=3') }}" rel="stylesheet">
 </head>
 
 <body class="index-page">
@@ -34,7 +34,8 @@
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
       <a href="/" class="d-flex align-items-center text-decoration-none">
-        <h1 class="sitename">PROMAPI</h1>
+        <img src="{{ asset('images/logo-promapi.png') }}" alt="Logo PROMAPI" width="30" class="me-2">
+        <h1 class="sitename mb-0">PROMAPI</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -52,8 +53,7 @@
                 <ul>
                   <li><a href="/profil/tentang-kami/logo" class="{{ request()->is('profil/tentang-kami/logo') ? 'active' : '' }}">Logo</a></li>
                   <li><a href="/profil/tentang-kami/sejarah" class="{{ request()->is('profil/tentang-kami/sejarah') ? 'active' : '' }}">Sejarah</a></li>
-                  <li><a href="/profil/tentang-kami/visi&misi" class="{{ request()->is('profil/tentang-kami/visi&misi') ? 'active' : '' }}">Visi & Misi</a></li>
-                  <li><a href="/profil/tentang-kami/tujuan" class="{{ request()->is('profil/tentang-kami/tujuan') ? 'active' : '' }}">Tujuan</a></li>
+                  <li><a href="/profil/tentang-kami/visi-misi-tujuan" class="{{ request()->is('profil/tentang-kami/visi-misi-tujuan') ? 'active' : '' }}">Visi, Misi & Tujuan</a></li>
                 </ul>
               </li>
               <li><a href="/profil/struktur-organisasi" class="{{ request()->is('profil/struktur-organisasi') ? 'active' : '' }}">Struktur Organisasi</a></li>
@@ -61,8 +61,7 @@
           </li>
           <li><a href="/program-kerja" class="{{ request()->is('program-kerja') ? 'active' : '' }}">PROGRAM KERJA</a></li>
           <li><a href="/informasi" class="{{ request()->is('informasi') ? 'active' : '' }}">INFORMASI</a></li>
-          <li><a href="/admin/login" class="btn-masuk">MASUK</a></li>
-          <li><a href="#" class="btn-daftar">DAFTAR</a></li>
+          <li><a href="#" class="btn-daftar-biru">DAFTAR</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -106,7 +105,7 @@
       <div class="row align-items-center mb-4 pb-3 border-bottom">
         <div class="col-md-6 mb-3 mb-md-0">
           <a href="/" class="d-flex align-items-center text-decoration-none">
-            <img src="{{ asset('images/apple-touch-icon.png') }}" alt="Logo PROMAPI" width="50" class="me-3">
+            <img src="{{ asset('images/logo-promapi.png') }}" alt="Logo PROMAPI" width="50" class="me-3">
             <h4 class="mb-0 fw-bold text-dark">Perkumpulan Profesi Administrator dan<br>Manajer Pendidikan Indonesia</h4>
           </a>
         </div>
@@ -144,8 +143,7 @@
             <ul class="list-unstyled footer-links">
                 <li><a href="/profil/tentang-kami/logo" class="{{ request()->is('profil/tentang-kami/logo') ? 'active' : '' }}">Logo</a></li>
                 <li><a href="/profil/tentang-kami/sejarah" class="{{ request()->is('profil/tentang-kami/sejarah') ? 'active' : '' }}">Sejarah</a></li>
-                <li><a href="/profil/tentang-kami/visi&misi" class="{{ request()->is('profil/tentang-kami/visi&misi') ? 'active' : '' }}">Visi & Misi</a></li>
-                <li><a href="/profil/tentang-kami/tujuan" class="{{ request()->is('profil/tentang-kami/tujuan') ? 'active' : '' }}">Tujuan</a></li>
+                <li><a href="/profil/tentang-kami/visi-misi-tujuan" class="{{ request()->is('profil/tentang-kami/visi-misi-tujuan') ? 'active' : '' }}">Visi, Misi & Tujuan</a></li>
                 <li><a href="/profil/struktur-organisasi" class="{{ request()->is('profil/struktur-organisasi') ? 'active' : '' }}">Struktur Organisasi</a></li>
 
             </ul>

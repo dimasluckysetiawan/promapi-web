@@ -1,9 +1,26 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
+@layer components {
+    /* Grup CSS untuk Formulir Admin */
+    .form-label {
+        @apply block text-gray-700 text-sm font-bold mb-2;
+    }
+    
+    .form-input {
+        @apply shadow-sm appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+    }
+    
+    .form-file {
+        @apply w-full text-gray-700 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+    }
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    .btn-primary {
+        @apply bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150 ease-in-out;
+    }
+
+    .btn-secondary {
+        @apply text-gray-600 hover:text-gray-800 font-medium transition duration-150 ease-in-out;
+    }
 }
