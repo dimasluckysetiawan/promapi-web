@@ -59,7 +59,7 @@
               <li><a href="/profil/struktur-organisasi" class="{{ request()->is('profil/struktur-organisasi') ? 'active' : '' }}">Struktur Organisasi</a></li>
             </ul>
           </li>
-          <li><a href="/program-kerja" class="{{ request()->is('program-kerja') ? 'active' : '' }}">PROGRAM KERJA</a></li>
+          <li><a href="/agenda" class="{{ request()->is('agenda') ? 'active' : '' }}">AGENDA</a></li>
           <li><a href="/informasi" class="{{ request()->is('informasi') ? 'active' : '' }}">INFORMASI</a></li>
           <li><a href="#" class="btn-daftar-biru">DAFTAR</a></li>
         </ul>
