@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 <!-- Mengisi judul halaman di atas -->
 @section('page-title', 'Agenda')
@@ -7,8 +7,7 @@
 <div class="container py-5">
     <div class="row mb-4">
         <div class="col-12 text-center">
-            <h1 class="fw-bold">Agenda & Program Kerja PROMAPI</h1>
-            <p class="text-muted">Ikuti berbagai kegiatan, acara, dan program kerja terbaru dari PROMAPI.</p>
+            <h1 class="fw-bold">Agenda PROMAPI</h1> 
             <hr class="w-25 mx-auto">
         </div>
     </div>

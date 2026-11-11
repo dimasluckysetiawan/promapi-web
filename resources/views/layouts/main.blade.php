@@ -60,8 +60,14 @@
             </ul>
           </li>
           <li><a href="/agenda" class="{{ request()->is('agenda') ? 'active' : '' }}">AGENDA</a></li>
-          <li><a href="/informasi" class="{{ request()->is('informasi') ? 'active' : '' }}">INFORMASI</a></li>
-          <li><a href="#" class="btn-daftar-biru">DAFTAR</a></li>
+          <li class="dropdown"><a href="#"><span>PUBLIKASI</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                  <li><a href="{{ url('/publikasi/nasional') }}">Jurnal Nasional</a></li>
+                  <li><a href="{{ url('/publikasi/internasional') }}">Jurnal Internasional</a></li>
+              </ul>
+          </li>
+          <li><a href="/galeri" class="{{ request()->is('galeri') ? 'active' : '' }}">GALERI</a></li>
+          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScilF09VnaXaq2zLLUls3VgbmVueZ30SFcstxtdlBl5kMOckg/formResponse" class="btn-daftar-biru">DAFTAR</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -150,10 +156,10 @@
           </div>
         </div>
 
-        <!-- Kolom 3: Informasi -->
+        <!-- Kolom 3: Galeri -->
         <div class="col-md-6 col-lg-3">
           <div class="widget">
-            <h3 class="widget-heading fw-bold">Informasi</h3>
+            <h3 class="widget-heading fw-bold">Galeri</h3>
             <ul class="list-unstyled footer-links">
               <li><a href="#">Pengumuman</a></li>
               <li><a href="#">Dokumen Organisasi</a></li>

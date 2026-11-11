@@ -29,9 +29,13 @@
                 <x-nav-link :href="route('agenda.index')" :active="request()->routeIs('agenda.*')">
                     Agenda
                 </x-nav-link>
+
+                <x-nav-link :href="route('publikasi.index')" :active="request()->routeIs('publikasi.*')">
+                    Publikasi
+                </x-nav-link>
                 
-                <x-nav-link href="#" :active="false">
-                    Dokumentasi
+                <x-nav-link :href="route('galeri.index')" :active="request()->routeIs('galeri.*')">
+                    Galeri
                 </x-nav-link>
             </div>
             </div>

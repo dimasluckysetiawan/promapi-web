@@ -179,6 +179,18 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Efek hover untuk link di footer */
+.custom-footer-links a {
+    color: rgba(255, 255, 255, 0.7); /* Putih transparan */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.custom-footer-links a:hover,
+.footer-icon:hover {
+    color: var(--accent-color, #F2B705) !important; /* Berubah kuning saat disorot */
+}
+
 /*--------------------------------------------------------------
 # Navigation Menu - Mobile
 --------------------------------------------------------------*/
