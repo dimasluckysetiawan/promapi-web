@@ -12,6 +12,16 @@
                     
                     <form action="{{ route('berita.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        @if ($errors->any())
+                            <div class="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+                                <strong>Oops! Ada masalah:</strong>
+                                <ul class="list-disc pl-5 mt-2">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
 
                         <div class="mb-4">
                             <label class="form-label" for="judul">Judul Berita</label>

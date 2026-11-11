@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Berita;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class BeritaController extends Controller
 {
@@ -51,7 +52,7 @@ class BeritaController extends Controller
             $fileFoto = $request->file('foto');
             $namaFoto = time() . '_' . $slug . '.' . $fileFoto->getClientOriginalExtension();
             // Simpan file ke dalam folder storage/app/public/fotos
-            $fileFoto->storeAs('public/fotos', $namaFoto);
+            $fileFoto->storeAs('fotos', $namaFoto, 'public');
         }
 
         // 4. Masukkan data ke database
@@ -80,7 +81,7 @@ class BeritaController extends Controller
      */
     public function edit(Berita $berita)
     {
-        //
+        return view('admin.berita.edit', compact('berita'));
     }
 
     /**
@@ -88,7 +89,51 @@ class BeritaController extends Controller
      */
     public function update(Request $request, Berita $berita)
     {
-        //
+        // 1. Validasi input
+        $request->validate([
+            'judul' => 'required|string|max:255',
+            'kategori' => 'required|string',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'konten' => 'required'
+        ]);
+
+        // 2. Perbarui slug jika judulnya berubah
+        $slug = $berita->slug;
+        if ($request->judul != $berita->judul) {
+            $slug = Str::slug($request->judul);
+            $originalSlug = $slug;
+            $count = 1;
+            
+            // Pengecekan ganda agar tidak bentrok dengan ID berita lain
+            while (\App\Models\Berita::where('slug', $slug)->where('id', '!=', $berita->id)->exists()) {
+                $slug = "{$originalSlug}-{$count}";
+                $count++;
+            }
+        }
+
+        // 3. Proses penggantian foto
+        $namaFotoLama = $berita->foto;
+        if ($request->hasFile('foto')) {
+            // Hapus foto lama dari server menggunakan disk public
+            if ($namaFotoLama && Storage::disk('public')->exists('fotos/' . $namaFotoLama)) {
+                Storage::disk('public')->delete('fotos/' . $namaFotoLama);
+            }
+            
+            $fileFotoBaru = $request->file('foto');
+            $namaFotoLama = time() . '_' . $slug . '.' . $fileFotoBaru->getClientOriginalExtension();
+            $fileFotoBaru->storeAs('fotos', $namaFotoLama, 'public');
+        }
+
+        // 4. Simpan pembaruan ke database
+        $berita->update([
+            'judul' => $request->judul,
+            'slug' => $slug,
+            'kategori' => $request->kategori,
+            'foto' => $namaFotoLama,
+            'konten' => $request->konten,
+        ]);
+
+        return redirect()->route('berita.index')->with('success', 'Berita berhasil diperbarui!');
     }
 
     /**
@@ -96,6 +141,14 @@ class BeritaController extends Controller
      */
     public function destroy(Berita $berita)
     {
-        //
+        // 1. Hapus foto dari disk public secara eksplisit
+        if ($berita->foto && Storage::disk('public')->exists('fotos/' . $berita->foto)) {
+            Storage::disk('public')->delete('fotos/' . $berita->foto);
+        }
+
+        // 2. Hapus data dari database
+        $berita->delete();
+
+        return redirect()->route('berita.index')->with('success', 'Berita beserta fotonya berhasil dihapus permanen!');
     }
 }

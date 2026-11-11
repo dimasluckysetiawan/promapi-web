@@ -42,8 +42,12 @@
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $item->created_at->format('d M Y') }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
-                        <a href="#" class="text-blue-600 hover:text-blue-900 mr-3">Edit</a>
-                        <a href="#" class="text-red-600 hover:text-red-900">Hapus</a>
+                        <a href="{{ route('berita.edit', $item->id) }}" class="text-blue-600 hover:text-blue-900 mr-3">Edit</a>
+                        <form action="{{ route('berita.destroy', $item->id) }}" method="POST" class="inline-block" onsubmit="return confirm('Yakin ingin menghapus berita ini? File foto juga akan terhapus permanen.')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-red-600 hover:text-red-900 font-medium ml-3">Hapus</button>
+                        </form>
                     </td>
                 </tr>
             @empty

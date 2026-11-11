@@ -40,7 +40,9 @@ Route::get('/minpro2026', function () {
     return view('admin.admin');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::resource('/minpro2026/berita', BeritaController::class)->middleware(['auth', 'verified']);
+Route::resource('/minpro2026/berita', BeritaController::class)
+    ->parameters(['berita' => 'berita'])
+    ->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
