@@ -47,9 +47,9 @@
           <li><a href="/berita" class="{{ request()->is('berita') ? 'active' : '' }}">BERITA</a></li>
           
           <!-- Terapkan juga untuk menu lainnya nanti, contohnya: -->
-          <li class="dropdown"><a href="#" class="{{ request()->is('profil*') ? 'active' : '' }}"><span>PROFIL</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li class="dropdown"><a href="javascript:void(0)" class="{{ request()->is('profil*') ? 'active' : '' }}"><span>PROFIL</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li class="dropdown"><a href="#"><span>Tentang Kami</span> <i class="bi bi-chevron-right toggle-dropdown"></i></a>
+              <li class="dropdown"><a href="javascript:void(0)"><span>Tentang Kami</span> <i class="bi bi-chevron-right toggle-dropdown"></i></a>
                 <ul>
                   <li><a href="/profil/tentang-kami/logo" class="{{ request()->is('profil/tentang-kami/logo') ? 'active' : '' }}">Logo</a></li>
                   <li><a href="/profil/tentang-kami/sejarah" class="{{ request()->is('profil/tentang-kami/sejarah') ? 'active' : '' }}">Sejarah</a></li>
@@ -60,7 +60,7 @@
             </ul>
           </li>
           <li><a href="/agenda" class="{{ request()->is('agenda') ? 'active' : '' }}">AGENDA</a></li>
-          <li class="dropdown"><a href="#"><span>PUBLIKASI</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li class="dropdown"><a href="javascript:void(0)"><span>PUBLIKASI</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
                   <li><a href="{{ url('/publikasi/nasional') }}">Jurnal Nasional</a></li>
                   <li><a href="{{ url('/publikasi/internasional') }}">Jurnal Internasional</a></li>
@@ -110,7 +110,7 @@
       <!-- Baris Atas: Logo dan Ikon Sosial Media -->
       <div class="row align-items-center mb-4 pb-3 border-bottom">
         <div class="col-md-6 mb-3 mb-md-0">
-          <a href="/" class="d-flex align-items-center text-decoration-none">
+          <a href="javascript:void(0)" class="d-flex align-items-center text-decoration-none">
             <img src="{{ asset('images/logo-promapi.png') }}" alt="Logo PROMAPI" width="50" class="me-3">
             <h4 class="mb-0 fw-bold text-dark">Perkumpulan Profesi Administrator dan<br>Manajer Pendidikan Indonesia</h4>
           </a>
@@ -151,19 +151,17 @@
                 <li><a href="/profil/tentang-kami/sejarah" class="{{ request()->is('profil/tentang-kami/sejarah') ? 'active' : '' }}">Sejarah</a></li>
                 <li><a href="/profil/tentang-kami/visi-misi-tujuan" class="{{ request()->is('profil/tentang-kami/visi-misi-tujuan') ? 'active' : '' }}">Visi, Misi & Tujuan</a></li>
                 <li><a href="/profil/struktur-organisasi" class="{{ request()->is('profil/struktur-organisasi') ? 'active' : '' }}">Struktur Organisasi</a></li>
-
             </ul>
           </div>
         </div>
 
-        <!-- Kolom 3: Galeri -->
+        <!-- Kolom 3: Publikasi -->
         <div class="col-md-6 col-lg-3">
           <div class="widget">
-            <h3 class="widget-heading fw-bold">Galeri</h3>
+            <h3 class="widget-heading fw-bold">Publikasi</h3>
             <ul class="list-unstyled footer-links">
-              <li><a href="#">Pengumuman</a></li>
-              <li><a href="#">Dokumen Organisasi</a></li>
-              <li><a href="#">Formulir Keanggotaan</a></li>
+              <li><a href="/publikasi/nasional" class="{{ request()->is('publikasi/nasional') ? 'active' : '' }}">Jurnal Nasional</a></li>
+              <li><a href="/publikasi/internasional" class="{{ request()->is('publikasi/internasional') ? 'active' : '' }}">Jurnal Internasional</a></li>
             </ul>
           </div>
         </div>
@@ -173,8 +171,9 @@
           <div class="widget">
             <h3 class="widget-heading fw-bold">Lainnya</h3>
             <ul class="list-unstyled footer-links">
-              <li><a href="#">Program & Kegiatan PROMAPI</a></li>
-              <li><a href="#">Berita PROMAPI</a></li>
+              <li><a href="/berita" class="{{ request()->is('berita*') ? 'active' : '' }}">Berita</a></li>
+              <li><a href="/agenda" class="{{ request()->is('agenda*') ? 'active' : '' }}">Agenda</a></li>
+              <li><a href="/galeri" class="{{ request()->is('galeri*') ? 'active' : '' }}">Galeri</a></li>
             </ul>
           </div>
         </div>
@@ -182,10 +181,10 @@
 
       <!-- Baris Bawah: Hak Cipta -->
       <div class="copyright text-center pt-4 border-top">
-        <p class="mb-0">© <span>2026</span> &mdash; Perkumpulan Profesi Administrator dan Manajer Pendidikan Indonesia</p>
+        <p class="mb-0">© <span>2026</span> — Perkumpulan Profesi Administrator dan Manajer Pendidikan Indonesia</p>
       </div>
     </div>
-  </footer>
+</footer>
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
